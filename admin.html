@@ -1,0 +1,21 @@
+<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PopFlix Admin</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/admin.css"></head><body>
+<header class="nav"><a class="logo" href="/">POP<span>FLIX</span> ADMIN</a><nav><a href="/">View website</a><button id="logout" hidden>Logout</button></nav></header>
+<main class="admin-wrap"><section id="login-panel" class="panel narrow"><p class="eyebrow">SECURE ADMIN</p><h1>Admin Login</h1><form id="login-form"><label>Username<input name="username" required autocomplete="username"></label><label>Password<input name="password" type="password" required autocomplete="current-password"></label><button class="btn" type="submit">Login</button><p id="login-msg" class="msg"></p></form></section>
+<section id="dashboard" hidden><div class="admin-head"><div><p class="eyebrow">CONTENT CONTROL</p><h1>Manage titles</h1></div><button class="btn" id="new">+ Add new title</button></div><div id="notice" class="msg"></div><div class="panel"><div class="table-head"><b>Your library</b><input id="admin-search" placeholder="Search titles"></div><div id="items"></div></div>
+<section id="editor" class="panel" hidden><div class="admin-head"><h2 id="editor-title">Add title</h2><button id="cancel" class="secondary">Close</button></div>
+<form id="title-form"><input type="hidden" name="id">
+<div class="form-grid">
+<label>Title *<input name="title" required maxlength="180"></label><label>Type *<select name="type"><option>Movie</option><option>Anime</option><option>Web Series</option></select></label>
+<label>Original title<input name="originalTitle"></label><label>Year<input name="year" type="number" min="1888" max="2200"></label>
+<label>Release date<input name="releaseDate" type="date"></label><label>Status<input name="status" placeholder="Released / Ongoing / Upcoming"></label>
+<label>Rating (0–10)<input name="rating" type="number" min="0" max="10" step="0.1"></label><label>Age rating<input name="ageRating" placeholder="U/A 13+"></label>
+<label>Runtime<input name="runtime" placeholder="2h 15m"></label><label>Language<input name="language" placeholder="Hindi, Japanese..."></label>
+<label>Director / Creator<input name="director"></label><label>Genres (comma separated)<input name="genres" placeholder="Action, Drama"></label>
+<label>Poster image URL<input name="posterUrl" type="url"></label><label>Backdrop image URL<input name="backdropUrl" type="url"></label>
+<label>Trailer URL<input name="trailerUrl" type="url"></label><label>Cast (comma separated)<input name="cast" placeholder="Actor 1, Actor 2"></label>
+</div><label>Synopsis<textarea name="synopsis" rows="4"></textarea></label>
+<label>Official watch links (JSON)<textarea name="watchLinks" rows="5">[]</textarea><small>Format: [{"label":"Official site","url":"https://...","kind":"official"}]</small></label>
+<label>Seasons & Episodes (JSON)<textarea name="seasons" rows="9">[]</textarea><small>Format: [{"seasonNumber":1,"title":"Season 1","episodes":[{"episodeNumber":1,"title":"Episode 1","runtime":"24m","synopsis":"...","watchLinks":[{"label":"Official","url":"https://...","kind":"official"}]}]}]</small></label>
+<label class="check"><input name="featured" type="checkbox"> Featured title (homepage par upar)</label>
+<div class="actions"><button class="btn" type="submit">Save title</button><button class="secondary" type="button" id="cancel-bottom">Cancel</button></div><p id="form-msg" class="msg"></p></form></section></section></main>
+<script src="/admin.js" defer></script></body></html>
